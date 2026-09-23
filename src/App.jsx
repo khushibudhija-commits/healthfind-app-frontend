@@ -1,20 +1,20 @@
 import React, { useEffect, useState } from 'react';
 import { Route, Routes, useLocation } from 'react-router-dom';
 import Navbar from './components/Navbar.jsx';
-import Footer from './components/Footer.jsx';
+import Footer from './components/footer.jsx';
 import { EmergencyFloatingButton } from './components/EmergencyButton.jsx';
 import Chatbot from './components/Chatbot.jsx';
 import { hospitalSlug } from './components/HospitalCard.jsx';
 
 // Pages
-import Home from './pages/Home.jsx';
+import Home from './pages/home.jsx';
 import Hospitals from './pages/Hospitals.jsx';
-import SearchResults from './pages/SearchResults.jsx';
-import HospitalDetails from './pages/HospitalDetails.jsx';
+import SearchResults from './pages/searchresults.jsx';
+import HospitalDetails from './pages/hospitaldetails.jsx';
 import CompareHospitals from './pages/CompareHospitals.jsx';
-import Treatments from './pages/Treatments.jsx';
+import Treatments from './pages/treatments.jsx';
 import Emergency from './pages/Emergency.jsx';
-import About from './pages/About.jsx';
+import About from './pages/about.jsx';
 import NotFound from './pages/NotFound.jsx';
 
 export default function App() {
