@@ -1,4 +1,5 @@
-const API_URL = import.meta.env.VITE_API_URL || 'https://healthfind-app-backend.onrender.com/api';
+const rawApiUrl = (import.meta.env.VITE_API_URL || 'https://healthfind-app-backend.onrender.com/api').trim().replace(/\/+$/, '');
+const API_URL = rawApiUrl.endsWith('/api') ? rawApiUrl : `${rawApiUrl}/api`;
 
 async function request(path, options = {}) {
     const response = await fetch(`${API_URL}${path}`, {
@@ -26,6 +27,11 @@ export const api = {
     },
 
     treatments: () => request('/treatments'),
+
+    treatmentAnalytics: (disease = '') => {
+        const query = disease ? `?disease=${encodeURIComponent(disease)}` : '';
+        return request(`/analytics/treatments${query}`);
+    },
 
     facilities: (treatment = '') => {
         const query = treatment ? `?treatment=${encodeURIComponent(treatment)}` : '';
